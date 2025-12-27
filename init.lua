@@ -16,6 +16,11 @@ if not pcall(require, "lazy") then
 end
 
 vim.keymap.set("n", "<space>fs", ":Telescope file_browser<CR>")
+vim.keymap.set("n", "cr", function() vim.lsp.buf.rename() end, {
+  desc = "Переименовать переменную/функцию",
+  noremap = true, -- не использовать рекурсивные маппинги
+  silent = true, -- не выводить сообщения в командную строку
+})
 
 require "lazy_setup"
 require "polish"

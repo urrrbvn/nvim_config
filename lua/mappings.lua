@@ -2,6 +2,7 @@ return {
   -- first key is the mode
   n = {
     ["<space>fs"] = { ":Telescope file_browser" },
+    -- ["<space>n"] = { function() vim.lsp.buf.rename() end },
   },
   c = {
     -- basic cursor movement in insert mode
