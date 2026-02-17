@@ -16,6 +16,7 @@ return {
   { import = "astrocommunity.colorscheme" },
   { import = "astrocommunity.diagnostics.tiny-inline-diagnostic-nvim" },
   { import = "astrocommunity.color.transparent-nvim" },
+  -- { import = "astrocommunity.workflow.hardtime-nvim" },
   -- { import = "astrocommunity.game.leetcode-nvim" },
   -- { import = "astrocommunity.ai.kurama622-llm-nvim" },
   -- import/override with your plugins folder

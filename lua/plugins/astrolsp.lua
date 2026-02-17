@@ -1,4 +1,4 @@
--- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- AstroLSP allows you to customize the features in AstroNvim's LSP configuration engine
 -- Configuration documentation can be found with `:h astrolsp`
@@ -10,6 +10,22 @@ return {
   "AstroNvim/astrolsp",
   ---@type AstroLSPOpts
   opts = {
+    config = {
+      ["typescript-tools"] = {
+        ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+        opts = {
+          settings = {
+            separate_diagnostic_server = false,
+            publish_diagnostic_on = "insert_leave",
+            expose_as_code_action = "all",
+            tsserver_file_preferences = {
+              includeInlayParameterNameHints = "all",
+              includeCompletionsForModuleExports = true,
+            },
+          },
+        },
+      },
+    },
     -- Configuration table of features provided by AstroLSP
     features = {
       codelens = true, -- enable/disable codelens refresh on start
@@ -21,16 +37,6 @@ return {
       -- control auto formatting on save
       format_on_save = {
         enabled = true, -- enable or disable format on save globally
-        allow_filetypes = { -- enable format on save for specified filetypes only
-          -- "go",
-        },
-        ignore_filetypes = { -- disable format on save for specified filetypes
-          -- "python",
-        },
-      },
-      disabled = { -- disable formatting capabilities for the listed language servers
-        -- disable lua_ls formatting capability if you want to use StyLua to format your lua code
-        -- "lua_ls",
       },
       timeout_ms = 1000, -- default format timeout
       -- filter = function(client) -- fully override the default formatting function
@@ -43,9 +49,9 @@ return {
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
-    config = {
-      gopls = { capabilities = { offsetEncoding = "utf-8" } },
-    },
+    -- config = {
+    --   gopls = { capabilities = { offsetEncoding = "utf-8" } },
+    -- },
     -- customize how language servers are attached
     handlers = {
       -- a function without a key is simply the default handler, functions take two parameters, the server name and the configured options table for that server

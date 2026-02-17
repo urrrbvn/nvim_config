@@ -15,6 +15,11 @@ if not pcall(require, "lazy") then
   vim.cmd.quit()
 end
 
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*",
+  callback = function(args) vim.lsp.buf.format { async = false } end,
+})
+
 vim.keymap.set("n", "<space>fs", ":Telescope file_browser<CR>")
 vim.keymap.set("n", "cr", function() vim.lsp.buf.rename() end, {
   desc = "Переименовать переменную/функцию",
