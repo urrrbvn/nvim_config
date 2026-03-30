@@ -1,4 +1,4 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
@@ -43,9 +43,23 @@ return {
     -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
     mappings = {
       n = {
-        ["]b"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
-        ["[b"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
-        ["<M-h>"] = { "<Cmd>ToggleTerm direction=horizontal<CR>", "Toggle horizontal terminal" },
+        ["<Leader>h"] = false,
+        ["<Leader>hv"] = {
+          function() vim.lsp.buf.hover() end,
+          desc = "Show declaration hover",
+        },
+
+        ["]b"] = false,
+        ["[b"] = false,
+        ["<Tab>"] = {
+          function() require("astrocore.buffer").nav(vim.v.count1) end,
+          desc = "Next buffer",
+        },
+        ["<S-Tab>"] = {
+          function() require("astrocore.buffer").nav(-vim.v.count1) end,
+          desc = "Previous buffer",
+        },
+
         ["<Leader>bd"] = {
           function()
             require("astroui.status.heirline").buffer_picker(
