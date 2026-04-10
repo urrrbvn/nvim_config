@@ -13,7 +13,14 @@ return {
     end,
 
     settings = {
-      tsserver = {},
+      tsserver_file_preferences = {
+        includeCompletionsForModuleExports = true,
+        includeCompletionsForImportStatements = true,
+        importModuleSpecifierPreference = "non-relative",
+        importModuleSpecifierEnding = "minimal",
+      },
+
+      tsserver_path = vim.fn.getcwd() .. "/node_modules/typescript/lib/tsserver.js",
 
       separate_diagnostic_server = false,
       publish_diagnostic_on = "insert_leave",

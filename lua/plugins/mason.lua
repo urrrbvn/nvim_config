@@ -12,7 +12,6 @@ return {
       ensure_installed = {
         "lua_ls",
         -- "vtsls",
-        -- "ts_ls",
         -- add more arguments for adding more language servers
       },
     },
