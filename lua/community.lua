@@ -13,7 +13,7 @@ return {
   { import = "astrocommunity.file-explorer.telescope-file-browser-nvim" },
   { import = "astrocommunity.search.nvim-spectre" },
   -- { import = "astrocommunity.color.huez-nvim" },
-  { import = "astrocommunity.colorscheme" },
+  -- { import = "astrocommunity.colorscheme" },
   { import = "astrocommunity.diagnostics.tiny-inline-diagnostic-nvim" },
   { import = "astrocommunity.color.transparent-nvim" },
   -- { import = "astrocommunity.workflow.hardtime-nvim" },
